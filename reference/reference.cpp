@@ -7,6 +7,7 @@ int main(int argc, char const *argv[])
     int &y = x; // y is just another name for x;
     // y will not hold any memory
     // cannot be declared without initialisation
+    // once a referance is created for a variable, it cannot be changed at all.
 
     cout << x << endl;       // 10
     y++;                     // increment in value of x
