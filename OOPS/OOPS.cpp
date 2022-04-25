@@ -78,6 +78,12 @@ public:
     }
 
     // copy constructor
+    /*
+        if dynamic memory is allocated by an object
+        then its not necessary that copy constructor func will create its own memory.
+        thats why we gotta be careful.
+        DEEP COPY CONSTRUCTOR.
+    */
     triangle(triangle(&tri))
     {
         base = tri.base;
