@@ -164,3 +164,29 @@ int main()
     */
     return 0;
 }
+
+/*
+
+class rectangle
+{
+private:
+    len;
+    wid;
+
+public:
+    int area()
+    {   // when we write a complete func inside the class, it acts as a part of main func only
+        // hence it is advised to write the body of a func outside the class.
+        return len * wid;
+    }
+    int perimeter();
+    // prototype only
+};
+
+// scope resolution
+int rectangle::perimeter()
+{
+    return 2* (len + wid);
+}
+
+*/
