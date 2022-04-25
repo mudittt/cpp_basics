@@ -17,6 +17,7 @@ Classes
 
 */
 
+#include <iostream>
 using namespace std;
 
 // same as struct in C.
@@ -37,10 +38,48 @@ public:
     }
 };
 
-#include <iostream>
+class triangle
+{
+private:
+    float base;
+    float height;
+
+public:
+    void setBase(int a)
+    {
+        // validating the data
+        if (a > 0)
+        {
+            base = a;
+        }
+        else
+        {
+            base = 0;
+        }
+    }
+    // setXXXXX func are mutators
+    void setHeight(int a)
+    {
+        height = a;
+    }
+    float getBase()
+    {
+        return base;
+    }
+    // getXXXXX func are accessors
+    float getHeight()
+    {
+        return height;
+    }
+    float area()
+    {
+        return 0.5 * base * height;
+    }
+};
 
 int main()
 {
+    /*rectangle*/
     rectangle r1, r2; // object created in stack
     r1.length = 10;
     r1.breadth = 5;
@@ -55,5 +94,15 @@ int main()
     p->breadth = 45;
     cout << p->area() << endl;
     rectangle *q = new rectangle(); // object created in heap
+
+    /*triangle*/
+    triangle t1;
+    // we can't print or set the values of base and height as they are private
+    // but what we can do is ~ use the base and height in the public section of the class.
+    t1.setBase(5);
+    t1.setHeight(15);
+    cout << t1.area() << endl;
+    cout << "base of t1 is ~ " << t1.getBase() << endl;
+
     return 0;
 }
