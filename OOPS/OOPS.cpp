@@ -103,6 +103,7 @@ public:
     {
         return 0.5 * base * height;
     }
+    ~triangle(); // destructor
 };
 
 int main()
@@ -149,6 +150,17 @@ int main()
         OVERLOADING
         OVERLOADED CONSTRUCTORS
     */
-
+    /*
+        GUIDELINES FOR WRITING A CLASS
+        ~ ~ ~ class must have these type of functions ~ ~ ~
+        >>> non parameterised constructors
+        >>> parameterised constructors
+        >>> copy constructors
+        >>> mutators
+        >>> accessors
+        >>> facilitators --> actual functions of class
+        >>> enquiry --> used for checking if an object satisfies some condition
+        >>> destructors --> used for releasing resources used by object
+    */
     return 0;
 }
