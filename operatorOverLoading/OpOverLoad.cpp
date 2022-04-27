@@ -32,6 +32,9 @@ public:
 
     // we can also use a friend function to subtract two complex object
     friend complex operator-(complex x, complex y);
+
+    // insertion operator overloading.
+    friend ostream &operator<<(ostream &o, complex &c);
 };
 
 // it is always recommended to define a ~ ~ ~friend operator overloading~ ~ ~ outside the class
@@ -41,6 +44,13 @@ complex operator-(complex x, complex y)
     temp.real = x.real - y.real;
     temp.img = x.img - y.img;
     return temp;
+}
+
+ostream &operator<<(ostream &o, complex &c)
+{
+    o << c.real << " + i"
+      << "(" << c.img << ")" << endl;
+    return o;
 }
 
 int main(int argc, char const *argv[])
@@ -68,6 +78,8 @@ int main(int argc, char const *argv[])
     c4 = c1 - c2;
     cout << c4.real << endl;
     cout << c4.img << endl;
+
+    cout << c4;
 
     return 0;
 }
