@@ -147,6 +147,73 @@ ostream &operator<<(ostream &o, cuboid &x)
     return o;
 }
 
+/*
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~     PRIVATE MEMBERS ARE NEVER ACCESIBLE     ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+IF WE INHERIT A CLASS PUBLICALY
+~ all the elements of *private* and *protected* section of the parent will get into childs's *private* and *protected* section ~
+~ all members of base will have same accessibility in derived class ~
+*/
+
+/*
+IF WE INHERIT A CLASS PROTECTEDLY
+~ all the elements of *private* and *protected* section of the parent will get into childs's *protected* section only ~
+~ all members of base will become protected in derived class ~
+*/
+
+/*
+IF WE INHERIT A CLASS PRIVATELY
+~ all the elements of *private* and *protected* section of the parent will get into childs's *private* section only ~
+~ all members of base will become private in derived class ~
+
+*/
+
+class parent
+{
+private:
+    int a;
+
+protected:
+    int b;
+
+public:
+    int c;
+    void funParent()
+    {
+        a = 10;
+        b = 5;
+        c = 15;
+    }
+};
+
+class child : private parent
+{
+
+public:
+    void funChild()
+    {
+        // a not accessible
+        // a = 10;
+        b = 5;
+        c = 15;
+    }
+};
+
+class Grandchild : public child
+{
+
+public:
+    void funGrandChild()
+    {
+
+        // a = 10;
+        // b = 5;
+        // c = 15;
+        //'b' and 'c' are also not accesible now that we are inheriting privately
+    }
+};
+
 int main()
 {
     /*
@@ -170,12 +237,13 @@ int main()
     cout << c;
     */
 
+    /*
     Derived d;
     // parent class consructor will be executed first.
     Derived d1(10);
     // default constructor of parent~class is always executed first.
     Derived d2(10, 20);
-
+    */
     return 0;
 }
 /*
