@@ -178,3 +178,13 @@ int main()
 
     return 0;
 }
+/*
+            ~public~  ~protected~  ~private~
+
+~inClass       yes  |      yes   |    yes
+
+~inDerived     yes  |      yes   |    NO
+
+~User          yes  |      NO    |    NO
+
+*/
