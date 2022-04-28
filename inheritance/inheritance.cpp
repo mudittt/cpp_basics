@@ -7,6 +7,14 @@ class Base
 {
 public:
     int x;
+    Base()
+    {
+        cout << "default of Base." << endl;
+    }
+    Base(int x)
+    {
+        cout << "param of Base." << x << endl;
+    }
     void show()
     {
         cout << "show() -> " << x << endl;
@@ -18,6 +26,19 @@ class Derived : public Base
 {
 public:
     int y;
+    Derived()
+    {
+        cout << "default of Derived." << endl;
+    }
+    Derived(int x)
+    {
+        cout << "param of Derived." << x << endl;
+    }
+    // calling Base for 'y'
+    Derived(int x, int y) : Base(y)
+    {
+        cout << "param of Derived." << x << endl;
+    }
     void display()
     {
         cout << "display() -> " << x << " " << y << endl;
@@ -140,11 +161,20 @@ int main()
     d.display();
     */
 
+    /*
     cuboid c(10, 5, 3);
     cout << c.getLength() << endl;
     cout << c.volume() << endl;
     cout << c.area() << endl;
     cout << "operator overloading.." << endl;
     cout << c;
+    */
+
+    Derived d;
+    // parent class consructor will be executed first.
+    Derived d1(10);
+    // default constructor of parent~class is always executed first.
+    Derived d2(10, 20);
+
     return 0;
 }
