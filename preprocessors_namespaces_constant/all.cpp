@@ -1,6 +1,17 @@
 #include <iostream>
 using namespace std;
-#define z 10 // not consume memory
+
+// before compilation
+#define PI 3.145       // not consume memory
+#define c cout         // c instead of cout
+#define sqr(x) (x * x) // function also
+#define max(x, y) (x > y ? x : y)
+#define msg(x) #x // whatever x may be - it'll convert into a string
+
+// if not defined
+#ifndef g
+#define g 9.8
+#endif
 
 class demo
 {
@@ -33,7 +44,12 @@ int main(int argc, char const *argv[])
     cout << *ptr << endl;
     */
 
+    /*
     demo d;
     d.dislay();
+    */
+
+    c << max(11, 2) << endl;
+    c << msg(hello) << endl;
     return 0;
 }
