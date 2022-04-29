@@ -13,6 +13,7 @@ using namespace std;
 #define g 9.8
 #endif
 
+/*
 class demo
 {
 public:
@@ -26,6 +27,22 @@ public:
         cout << x << " " << y << endl;
     }
 };
+*/
+
+namespace first
+{
+    void func()
+    {
+        c << "first" << endl;
+    }
+}
+namespace second
+{
+    void func()
+    {
+        c << "second" << endl;
+    }
+}
 
 int main(int argc, char const *argv[])
 {
@@ -49,7 +66,13 @@ int main(int argc, char const *argv[])
     d.dislay();
     */
 
+    /*
     c << max(11, 2) << endl;
     c << msg(hello) << endl;
+    */
+
+    first::func();
+    using namespace second;
+    func();
     return 0;
 }
